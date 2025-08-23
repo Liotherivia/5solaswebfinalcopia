@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paleta de Colores - 5 Solas</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ======= Galería Responsive ======= */
+    #catalogoscolores {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .paleta-colores {
+      flex: 1 1 150px; /* se adapta automáticamente */
+      max-width: 200px;
+      cursor: pointer;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .paleta-colores img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .paleta-colores:hover img {
+      transform: scale(1.15);
+    }
+
+    .paleta-colores:hover {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    /* ======= Lightbox Avanzado ======= */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      overflow: auto;
+      animation: fadeIn 0.3s ease;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .lightbox-overlay.active {
+      display: flex;
+    }
+
+    .lightbox-img-container {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      animation: zoomIn 0.3s ease;
+    }
+
+    .lightbox-img-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.7);
+    }
+
+    /* Botones navegación */
+    .lightbox-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #C58C27;
+      font-size: 2.5rem;
+      font-weight: bold;
+      background: rgba(0,0,0,0.4);
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .lightbox-btn:hover {
+      background: rgba(0,0,0,0.8);
+      transform: scale(1.2);
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* Cerrar */
+    .close-lightbox {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: #C58C27;
+      font-size: 2.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close-lightbox:hover {
+      color: #fff;
+    }
+
+    /* Animaciones */
+    @keyframes fadeIn {
+      from {opacity: 0;} to {opacity: 1;}
+    }
+
+    @keyframes zoomIn {
+      from {transform: scale(0.8);} to {transform: scale(1);}
+    }
+
+    /* ======= Media Queries ======= */
+    @media (max-width: 768px) {
+      .paleta-colores {
+        flex: 1 1 45%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .paleta-colores {
+        flex: 1 1 100%;
+      }
+
+      .lightbox-btn {
+        font-size: 2rem;
+        padding: 8px;
+      }
+
+      .close-lightbox {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <a href="index.html"><img src="5solas/LOGO.jpg" alt="Logo de la tienda"></a>
+  </div>
+  <nav>
+    <a href="index.html">Inicio</a>
+     <a href="playeras.html">Playeras</a>
+    <a href="sudaderas.html">Sudaderas</a>
+    <a href="cotizaciones.html">Cotizaciones Mayoreo</a>
+    <a href="catalogoscolores.html" class="activo">Paleta de Colores</a>
+  </nav>
+</header>
+
+<section id="catalogoscolores">
+  <h2>Paleta de Colores</h2>
+
+  <!-- Miniaturas responsive -->
+  <div class="paleta-colores"><img src="5solas/catalogocoloresniños.jpg" alt="Colores 1"></div>
+  <div class="paleta-colores"><img src="5solas/catalogocoloresniños2.jpg" alt="Colores 2"></div>
+  <div class="paleta-colores"><img src="5solas/catalogocoloresniños3.jpg" alt="Colores 3"></div>
+  <div class="paleta-colores"><img src="5solas/catalogocoloresniños4.jpg" alt="Colores 4"></div>
+  <div class="paleta-colores"><img src="5solas/coloresplayeras.jpg" alt="Colores 5"></div>
+  <div class="paleta-colores"><img src="5solas/coloresplayeras2.jpg" alt="Colores 6"></div>
+  <div class="paleta-colores"><img src="5solas/coloressudaderas.jpg" alt="Colores 7"></div>
+  <div class="paleta-colores"><img src="5solas/coloressudaderas2.jpg" alt="Colores 8"></div>
+</section>
+
+<!-- ======= Lightbox Avanzado ======= -->
+<div class="lightbox-overlay" id="lightbox">
+  <span class="close-lightbox" id="close">&times;</span>
+  <span class="lightbox-btn prev" id="prev">&#10094;</span>
+  <div class="lightbox-img-container">
+    <img src="" alt="Color" id="lightbox-img">
+  </div>
+  <span class="lightbox-btn next" id="next">&#10095;</span>
+</div>
+
+<footer>
+  <div class="footer-contenido">
+    <img src="5solas/5solaslogofinal.png" alt="Logo 5 Solas" class="footer-logo">
+    <p>&copy; 2025 5Solas <sup>®</sup> - Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('close');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+
+  const images = document.querySelectorAll('.paleta-colores img');
+  let currentIndex = 0;
+
+  // Abrir lightbox
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      lightbox.classList.add('active');
+      lightboxImg.src = img.src;
+      currentIndex = index;
+    });
+  });
+
+  // Cerrar lightbox
+  closeBtn.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+  });
+
+  // Navegación siguiente/previa
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+  });
+
+  // Cerrar al hacer clic fuera de la imagen
+  lightbox.addEventListener('click', e => {
+    if(e.target === lightbox) lightbox.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>

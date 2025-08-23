@@ -30,11 +30,11 @@
     <img src="5solas/LOGO.jpg" alt="Logo de la tienda">
   </div>
   <nav>
-    <a href="index.html">Inicio</a>
     <a href="playeras.html">Playeras</a>
     <a href="sudaderas.html">Sudaderas</a>
     <a href="#" id="btn-quienes">¿Quiénes Somos?</a>
     <a href="cotizaciones.html">Cotizaciones Mayoreo</a>
+    <a href="catalogoscolores.html">Paleta de Colores</a>
   </nav>
 </header>
 
@@ -98,14 +98,34 @@
 
 <!-- Script -->
 <script>
-  // Mostrar/Ocultar "¿Quiénes Somos?" con fade
-  document.getElementById("btn-quienes").addEventListener("click", function(event) {
-    event.preventDefault();
-    const contenido = document.getElementById("contenido-quienes");
-    contenido.classList.toggle("show");
-    contenido.scrollIntoView({ behavior: "smooth" });
+  const btnQuienes = document.getElementById("btn-quienes");
+  const logo = document.getElementById("logo");
+  const contenido = document.getElementById("contenido-quienes");
+
+  function toggleQuienes() {
+    if (contenido.classList.contains("show")) {
+      contenido.classList.remove("show");
+      setTimeout(() => {
+        contenido.style.display = "none";
+      }, 800); // espera que termine el fade-out
+    } else {
+      contenido.style.display = "block";
+      setTimeout(() => contenido.classList.add("show"), 10); // pequeño delay para que el fade se note
+      contenido.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  btnQuienes.addEventListener("click", function (e) {
+    e.preventDefault();
+    toggleQuienes();
+  });
+
+  logo.addEventListener("click", function (e) {
+    e.preventDefault();
+    toggleQuienes();
   });
 </script>
+
 
 </body>
 </html>

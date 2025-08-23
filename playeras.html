@@ -5,6 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Playeras - 5 Solas</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-img-container {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+    .lightbox-img-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+    .close-lightbox {
+      position: absolute;
+      top: 20px; right: 30px;
+      color: #C58C27;
+      font-size: 3rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      color: #C58C27;
+      font-size: 3rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+      user-select: none;
+      transform: translateY(-50%);
+    }
+    .prev { left: 20px; }
+    .next { right: 20px; }
+    /* Galería */
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .galeria .item {
+      width: 200px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .galeria .item img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .galeria .item img:hover { transform: scale(1.05); }
+  </style>
 </head>
 <body>
   <header>
@@ -15,34 +80,390 @@
       <a href="index.html">Inicio</a>
       <a href="sudaderas.html">Sudaderas</a>
       <a href="cotizaciones.html">Cotizaciones Mayoreo</a>
+      <a href="catalogoscolores.html">Paleta de Colores</a>
     </nav>
   </header>
 
   <section id="playeras">
-    <h2>Playeras</h2>
+    <h2>Playeras $180 mxn</h2>
     <div class="galeria">
-      <!-- Aquí van TODAS las playeras -->
-      <div class="item">
-        <img src="5solas/CORAZON.jpg" alt="Playera modelo 1">
+      <!-- Aquí van todas las imágenes de playeras -->
+      <div class="item"><img src="5solas/CORAZON.jpg" alt="Playera modelo 1">
+     <p>Varios colores</p>
+    </div>
+    <div class="item"><img src="5solas/CREADA.jpg" alt="Playera modelo 2">
+       <p>Varios colores</p>
+    </div>
+    <div class="item"><img src="5solas/CREADO.jpg" alt="Playera modelo 3"> 
+      <p>Varios colores</p>
+    </div>
+     <div class="item">
+        <img src="5solas/abba.jpg" alt="Playera modelo 4">
         <p>Varios colores</p>
       </div>
       <div class="item">
-        <img src="5solas/CREADA.jpg" alt="Playera modelo 2">
+        <img src="5solas/amigos.jpg" alt="Playera modelo 5">
         <p>Varios colores</p>
       </div>
       <div class="item">
-        <img src="5solas/CREADO.jpg" alt="Playera modelo 3">
+        <img src="5solas/ancla.jpg" alt="Playera modelo 6">
         <p>Varios colores</p>
       </div>
-      <!-- etc... -->
+      <div class="item">
+        <img src="5solas/bajotusalas.jpg" alt="Playera modelo 7">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/barcos.jpg" alt="Playera modelo 8">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/cadamañana.jpg" alt="Playera modelo 9">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/camina en fe.jpg" alt="Playera modelo 10">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/ciervo.jpg" alt="Playera modelo 11">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/ciervo2.jpg" alt="Playera modelo 12">
+        <p>Varios colores</p> 
+      </div>
+      <div class="item">
+        <img src="5solas/clean.jpg" alt="Playera modelo 13">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/consumadoes.jpg" alt="Playera modelo 14">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/corazonnuevo.jpg" alt="Playera modelo 15">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">  
+        <img src="5solas/CREE.jpg" alt="Playera modelo 16">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/cuidadelasaves.jpg" alt="Playera modelo 17">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/dejasteelcielo.jpg" alt="Playera modelo 18">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/Diosesfiel.jpg" alt="Playera modelo 19">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/Diosesluz.jpg" alt="Playera modelo 20">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/DOULOS.jpg" alt="Playera modelo 21">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/espada.jpg" alt="Playera modelo 22">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/fe-miedo.jpg" alt="Playera modelo 23">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/FE.jpg" alt="Playera modelo 24">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/frutos.jpg" alt="Playera modelo 25">
+        <p>Varios colores</p>
+      </div> 
+      <div class="item">
+        <img src="5solas/fuego.jpg" alt="Playera modelo 26">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/HOSANA PLAYERA.jpg" alt="Playera modelo 27">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/HUELLA.jpg" alt="Playera modelo 28">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/intheheaven.jpg" alt="Playera modelo 29">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">  
+        <img src="5solas/j.jpg" alt="Playera modelo 30">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/JESUS AZUL.jpg" alt="Playera modelo 31">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/JESUS.jpg" alt="Playera modelo 32">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/juan119.jpg" alt="Playera modelo 33">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/juan316.jpg" alt="Playera modelo 34">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/juguito.jpg" alt="Playera modelo 35">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/levantatusmanos.jpg" alt="Playera modelo 36">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/maranatha.jpg" alt="Playera modelo 37">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/MARTUS.jpg" alt="Playera modelo 38">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/microfono.jpg" alt="Playera modelo 39">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/mi-esperanza.jpg" alt="Playera modelo 40">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/miel.jpg" alt="Playera modelo 41">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/mostaza.jpg" alt="Playera modelo 42">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/MUEVEMONTAÑAS.jpg" alt="Playera modelo 43">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/muriopormi.jpg" alt="Playera modelo 44">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/ORA.jpg" alt="Playera modelo 45">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/oraconfiaespera.jpg" alt="Playera modelo 46">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/orad.jpg" alt="Playera modelo 47">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/ORAR.jpg" alt="Playera modelo 48">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/OSO.jpg" alt="Playera modelo 49">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/panes.jpg" alt="Playera modelo 50">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/PIENSA.jpg" alt="Playera modelo 51">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/porgracia.jpg" alt="Playera modelo 52">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/PRINCIPE.jpg" alt="Playera modelo 53">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/prosigo.jpg" alt="Playera modelo 54">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/resucitado.jpg" alt="Playera modelo 55">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/retened.jpg" alt="Playera modelo 56">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/reydereyes.jpg" alt="Playera modelo 57">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/riosdeagua.jpg" alt="Playera modelo 58">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">
+        <img src="5solas/ROCA.jpg" alt="Playera modelo 59">
+        <p>Varios colores</p>
+      </div>
+      <div class="item">  
+  <img src="5solas/rompiocadenas.jpg" alt="Playera modelo 60">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">  
+  <img src="5solas/salmos92.jpg" alt="Playera modelo 61">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/seamosluz.jpg" alt="Playera modelo 62">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/selah.jpg" alt="Playera modelo 63">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/SEÑOR.jpg" alt="Playera modelo 64">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/shalom.jpg" alt="Playera modelo 65">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/SOLAESCRITURA.jpg" alt="Playera modelo 66">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/solafide.jpg" alt="Playera modelo 67">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/solagratia.jpg" alt="Playera modelo 68">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/solideo.jpg" alt="Playera modelo 69">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/soluschristus.jpg" alt="Playera modelo 70">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/TIEMPO.jpg" alt="Playera modelo 71">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/tierrita.jpg" alt="Playera modelo 72">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/tresvecessanto.jpg" alt="Playera modelo 73">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/trust.jpg" alt="Playera modelo 74">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/tu-amor.jpg" alt="Playera modelo 75">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/yeshua.jpg" alt="Playera modelo 76">
+  <p>Varios colores</p>
+</div>
+
+<div class="item">
+  <img src="5solas/YHWH.jpg" alt="Playera modelo 77">
+  <p>Varios colores</p>
+</div>
+
+
+      <!-- Agrega el resto de tus imágenes siguiendo este mismo formato -->
     </div>
   </section>
 
-  <footer>
-  <div class="footer-contenido">
-    <img src="5solas/5solaslogofinal.png" alt="Logo 5 Solas" class="footer-logo">
-    <p>&copy; 2025 5Solas <sup>®</sup> - Todos los derechos reservados</p>
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox">
+    <span class="close-lightbox" id="close">&times;</span>
+    <button class="prev" id="prev">&#10094;</button>
+    <div class="lightbox-img-container">
+      <img src="" alt="Playera" id="lightbox-img">
+    </div>
+    <button class="next" id="next">&#10095;</button>
   </div>
-</footer>
+
+  <footer>
+    <div class="footer-contenido">
+      <img src="5solas/5solaslogofinal.png" alt="Logo 5 Solas" class="footer-logo">
+      <p>&copy; 2025 5Solas <sup>®</sup> - Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('close');
+    const images = Array.from(document.querySelectorAll('.galeria .item img'));
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    let currentIndex = 0;
+
+    function showLightbox(index){
+      currentIndex = index;
+      lightboxImg.src = images[index].src;
+      lightbox.classList.add('active');
+    }
+
+    images.forEach((img, i) => {
+      img.addEventListener('click', () => showLightbox(i));
+    });
+
+    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+    lightbox.addEventListener('click', e => { if(e.target === lightbox) lightbox.classList.remove('active'); });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+    });
+  </script>
 </body>
 </html>
