@@ -5,33 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>5 Solas</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<!-- Botón flotante WhatsApp -->
-<a href="https://wa.me/525518188850?text=¡Hola!%20Quiero%20más%20información%20sobre%20las%20playeras%20y%20sudaderas%20😃" 
-   class="btn-flotante whatsapp" 
-   target="_blank">
-   <i class="fab fa-whatsapp"></i>
-</a>
-
-<!-- Botón flotante Facebook -->
-<a href="https://www.facebook.com/profile.php?id=100072440822794&sk=about" 
-   class="btn-flotante facebook" 
-   target="_blank">
-   <i class="fab fa-facebook-f"></i>
-</a>
-
-<!-- Botón flotante Instagram -->
-<a href="https://www.instagram.com/5cinco_solas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
-   class="btn-flotante instagram" 
-   target="_blank">
-   <i class="fab fa-instagram"></i>
-</a>
-
-<!-- Cargar librería de iconos -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <body>
-  <!-- Encabezado -->
+
 <!-- Encabezado -->
 <header>
   <div class="logo" id="logo">
@@ -41,13 +18,11 @@
     <a href="index.html">Inicio</a>
     <a href="playeras.html">Playeras</a>
     <a href="sudaderas.html">Sudaderas</a>
-   <a href="#quienes-somos" id="btn-quienes">¿Quiénes Somos?</a>
-    <a href="#contacto.html">Contacto</a>
+    <a href="cotizaciones.html">Cotizaciones Mayoreo</a>
   </nav>
 </header>
 
-
-<!-- Sección Quiénes Somos (arriba, después del logo) -->
+<!-- Sección Quiénes Somos -->
 <section id="quienes-somos">
   <div id="contenido-quienes">
     <h2>¿Quiénes Somos?</h2>
@@ -57,102 +32,73 @@
       impresos de última generación y diferentes soportes para reproducir los productos con excelente calidad.
     </p>
   </div>
-</section>
 
-  
   <div class="mision-vision" id="mision-vision" style="display:none;">
     <div class="caja">
       <h3>Visión</h3>
-      <p>Ser una marca que represente el amor de Dios por las
-personas en México y en la sociedad latina inspirando
-vidas, sueños y una nueva forma de vivir así como la libertad
-de expresar lo que creemos, formando una coyuntura para
-alcanzar vidas para Cristo.</p>
+      <p>Ser una marca que represente el amor de Dios por las personas en México y la sociedad latina inspirando vidas, sueños y una nueva forma de vivir así como la libertad de expresar lo que creemos, formando una coyuntura para alcanzar vidas para Cristo.</p>
     </div>
     <div class="caja">
       <h3>Misión</h3>
-      <p>Difundir el mensaje del evangelio de una forma diferente,
-apegados a las escrituras y guardando la integridad de
-las mismas a traves de productos de calidad, creando
-también una marca que represente y ayude a la comunidad
-cristiana en México expresando libremente la verdad de Dios.</p>
+      <p>Difundir el mensaje del evangelio de una forma diferente, apegados a las escrituras y guardando la integridad de las mismas a través de productos de calidad, creando también una marca que represente y ayude a la comunidad cristiana en México expresando libremente la verdad de Dios.</p>
     </div>
   </div>
 </section>
 
-
-  <!-- Sección Productos -->
+<!-- Sección Productos -->
 <section id="productos">
   <h2>Nuestros Productos</h2>
   <div class="galeria">
-
-    <!-- Ejemplo de Playeras -->
     <a href="playeras.html" class="item">
       <img src="5solas/MODELOS PLAYERAS.jpg" alt="Modelos de Playeras">
       <p>Ver Playeras</p>
     </a>
-
-    <!-- Ejemplo de Sudaderas -->
     <a href="sudaderas.html" class="item">
       <img src="5solas/SUDADERAS MOEDLO.jpg" alt="Modelos de Sudaderas">
       <p>Ver Sudaderas</p>
     </a>
-
   </div>
 </section>
 
-<!-- Contacto -->
-<section id="contacto">
-  <h2>Haz tu Pedido</h2>
-  <form id="pedido-form" action="https://formspree.io/f/maypgebo" method="POST" class="pedido-form">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required>
-
-    <label for="correo">Correo:</label>
-    <input type="email" id="correo" name="correo" required>
-
-    <label for="telefono">Teléfono:</label>
-    <input type="tel" id="telefono" name="telefono" required>
-
-    <button type="submit" class="btn">Enviar Pedido</button>
-  </form>
-</section>
-
-  <!-- Pie -->
- <footer>
+<!-- Footer -->
+<footer>
   <div class="footer-contenido">
     <img src="5solas/5solaslogofinal.png" alt="Logo 5 Solas" class="footer-logo">
     <p>&copy; 2025 5Solas <sup>®</sup> - Todos los derechos reservados</p>
   </div>
 </footer>
 
+<!-- Botones flotantes -->
+<a href="https://wa.me/525518188850?text=¡Hola!%20Quiero%20más%20información%20sobre%20las%20playeras%20y%20sudaderas%20😃" class="btn-flotante whatsapp" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<a href="https://www.facebook.com/profile.php?id=100072440822794&sk=about" class="btn-flotante facebook" target="_blank">
+  <i class="fab fa-facebook-f"></i>
+</a>
+<a href="https://www.instagram.com/5cinco_solas" class="btn-flotante instagram" target="_blank">
+  <i class="fab fa-instagram"></i>
+</a>
 
-  <script>
-  document.getElementById("logo").addEventListener("click", function() {
-    const misionVision = document.getElementById("mision-vision");
-    misionVision.style.display = 
-      (misionVision.style.display === "none" || misionVision.style.display === "") 
-      ? "flex" 
-      : "none";
-  });
-</script>
+<!-- Scripts -->
 <script>
+  // Fade Quiénes Somos
   document.getElementById("btn-quienes").addEventListener("click", function(event) {
     event.preventDefault(); 
     const contenido = document.getElementById("contenido-quienes");
-
     if (contenido.classList.contains("show")) {
-      // Si ya está visible, lo oculta
       contenido.classList.remove("show");
       setTimeout(() => contenido.style.display = "none", 600);
     } else {
-      // Si está oculto, lo muestra con fade
       contenido.style.display = "block";
       setTimeout(() => contenido.classList.add("show"), 50);
     }
-
-    // Scroll suave a la sección
     document.getElementById("quienes-somos").scrollIntoView({ behavior: "smooth" });
+  });
+
+  // Mostrar Misión/Visión al hacer click en logo
+  document.getElementById("logo").addEventListener("click", function() {
+    const misionVision = document.getElementById("mision-vision");
+    misionVision.style.display = (misionVision.style.display === "none" || misionVision.style.display === "") ? "flex" : "none";
   });
 </script>
 

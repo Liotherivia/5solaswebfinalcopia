@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cotizaciones Mayoreo - 5 Solas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo" id="logo">
+    <img src="5solas/LOGO.jpg" alt="Logo de la tienda">
+  </div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="playeras.html">Playeras</a>
+    <a href="sudaderas.html">Sudaderas</a>
+    <a href="cotizaciones.html">Cotizaciones Mayoreo</a>
+  </nav>
+</header>
+
+<section id="cotizaciones">
+  <h2>Cotizaciones Mayoreo</h2>
+  <form id="pedido-form" action="https://formspree.io/f/maypgebo" method="POST" class="pedido-form">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="correo">Correo:</label>
+    <input type="email" id="correo" name="correo" required>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" name="telefono" required>
+
+    <button type="submit" class="btn">Contactame</button>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-contenido">
+    <img src="5solas/5solaslogofinal.png" alt="Logo 5 Solas" class="footer-logo">
+    <p>&copy; 2025 5Solas <sup>®</sup> - Todos los derechos reservados</p>
+  </div>
+</footer>
+
+</body>
+</html>
