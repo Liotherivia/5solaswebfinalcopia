@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cotizaciones Mayoreo - 5 Solas</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .formulario-cotizacion {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #7EAFC6; /* color verde suave */
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .formulario-cotizacion h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .formulario-cotizacion label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .formulario-cotizacion input,
+    .formulario-cotizacion textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .formulario-cotizacion textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .formulario-cotizacion button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background-color: #C58C27; /* color girasol */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .formulario-cotizacion button:hover {
+      background-color: #a67420;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <a href="index.html"><img src="5solas/LOGO.jpg" alt="Logo de la tienda"></a>
+  </div>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="playeras.html">Playeras</a>
+    <a href="sudaderas.html">Sudaderas</a>
+    <a href="cotizaciones.html" class="activo">Cotizaciones Mayoreo</a>
+    <a href="catalogoscolores.html">Paleta de Colores</a>
+  </nav>
+</header>
+
+<section class="formulario-cotizacion">
+  <h2>Solicitar Cotización.¿Algún diseño en particular?</h2>
+  <form id="formCotizacion">
+    <label for="nombre">Nombre completo</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="correo">Correo electrónico</label>
+    <input type="email" id="correo" name="correo" required>
+
+    <label for="telefono">Teléfono</label>
+    <input type="tel" id="telefono" name="telefono">
+
+    <label for="comentarios">Comentarios</label>
+    <textarea id="comentarios" name="comentarios" placeholder="Escribe aquí tu mensaje o los productos que deseas cotizar..."></textarea>
+
+    <button type="submit">Enviar por WhatsApp</button>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-contenido">
+    <img src="5solas/5solaslogofinal.png" alt="Logo 5 Solas" class="footer-logo">
+    <p>&copy; 2025 5Solas <sup>®</sup> - Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("formCotizacion").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const correo = document.getElementById("correo").value;
+    const telefono = document.getElementById("telefono").value;
+    const comentarios = document.getElementById("comentarios").value;
+
+    const mensaje = `¡Hola! Quiero una cotización 🙌%0A
+*Nombre:* ${nombre}%0A
+*Correo:* ${correo}%0A
+*Teléfono:* ${telefono}%0A
+*Comentarios:* ${comentarios}`;
+
+    // número de WhatsApp (cámbialo si usas otro)
+    const numero = "525518188850"; 
+
+    const url = `https://wa.me/${numero}?text=${mensaje}`;
+    window.open(url, "_blank");
+  });
+</script>
+
+</body>
+</html>
+

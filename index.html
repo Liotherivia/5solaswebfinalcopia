@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Solas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Estilos para fade */
+    #contenido-quienes {
+      max-width: 800px;
+      margin: 20px auto;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    #contenido-quienes.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Encabezado -->
+<header>
+  <div class="logo" id="logo">
+    <img src="5solas/LOGO.jpg" alt="Logo de la tienda">
+  </div>
+  <nav>
+    <a href="playeras.html">Playeras</a>
+    <a href="sudaderas.html">Sudaderas</a>
+    <a href="#" id="btn-quienes">¿Quiénes Somos?</a>
+    <a href="cotizaciones.html">Cotizaciones Mayoreo</a>
+    <a href="catalogoscolores.html">Paleta de Colores</a>
+  </nav>
+</header>
+
+<!-- Sección Quiénes Somos -->
+<section id="quienes-somos">
+  <div id="contenido-quienes">
+    <h2>¿Quiénes Somos?</h2>
+    <p>
+      Cinco Solas es una marca de ropa cristiana, dedicados a difundir el mensaje del evangelio
+      conforme lo que está escrito en la Biblia, formado por un grupo de expertos en diseño creativo,
+      impresos de última generación y diferentes soportes para reproducir los productos con excelente calidad.
+    </p>
+    <h3>Visión</h3>
+    <p>
+      Ser una marca que represente el amor de Dios por las personas en México y la sociedad latina inspirando vidas,
+      sueños y una nueva forma de vivir así como la libertad de expresar lo que creemos, formando una coyuntura para
+      alcanzar vidas para Cristo.
+    </p>
+    <h3>Misión</h3>
+    <p>
+      Difundir el mensaje del evangelio de una forma diferente, apegados a las escrituras y guardando la integridad de
+      las mismas a través de productos de calidad, creando también una marca que represente y ayude a la comunidad cristiana
+      en México expresando libremente la verdad de Dios.
+    </p>
+  </div>
+</section>
+
+<!-- Sección Productos -->
+<section id="productos">
+  <h2>Nuestros Productos</h2>
+  <div class="galeria">
+    <a href="playeras.html" class="item">
+      <img src="5solas/MODELOS PLAYERAS.jpg" alt="Modelos de Playeras">
+      <p>Ver Playeras</p>
+    </a>
+    <a href="sudaderas.html" class="item">
+      <img src="5solas/SUDADERAS MOEDLO.jpg" alt="Modelos de Sudaderas">
+      <p>Ver Sudaderas</p>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-contenido">
+    <img src="5solas/5solaslogofinal.png" alt="Logo 5 Solas" class="footer-logo">
+    <p>&copy; 2025 5Solas <sup>®</sup> - Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<!-- Botones flotantes -->
+<a href="https://wa.me/525518188850?text=¡Hola!%20Quiero%20más%20información%20sobre%20las%20playeras%20y%20sudaderas%20😃" class="btn-flotante whatsapp" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<a href="https://www.facebook.com/profile.php?id=100072440822794&sk=about" class="btn-flotante facebook" target="_blank">
+  <i class="fab fa-facebook-f"></i>
+</a>
+<a href="https://www.instagram.com/5cinco_solas" class="btn-flotante instagram" target="_blank">
+  <i class="fab fa-instagram"></i>
+</a>
+
+<!-- Script -->
+<script>
+  const btnQuienes = document.getElementById("btn-quienes");
+  const logo = document.getElementById("logo");
+  const contenido = document.getElementById("contenido-quienes");
+
+  function toggleQuienes() {
+    if (contenido.classList.contains("show")) {
+      contenido.classList.remove("show");
+      setTimeout(() => {
+        contenido.style.display = "none";
+      }, 800); // espera que termine el fade-out
+    } else {
+      contenido.style.display = "block";
+      setTimeout(() => contenido.classList.add("show"), 10); // pequeño delay para que el fade se note
+      contenido.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  btnQuienes.addEventListener("click", function (e) {
+    e.preventDefault();
+    toggleQuienes();
+  });
+
+  logo.addEventListener("click", function (e) {
+    e.preventDefault();
+    toggleQuienes();
+  });
+</script>
+
+
+</body>
+</html>

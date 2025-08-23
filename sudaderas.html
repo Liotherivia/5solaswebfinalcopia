@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playeras - 5 Solas</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-img-container {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+    .lightbox-img-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+    .close-lightbox {
+      position: absolute;
+      top: 20px; right: 30px;
+      color: #C58C27;
+      font-size: 3rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      color: #C58C27;
+      font-size: 3rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1001;
+      user-select: none;
+      transform: translateY(-50%);
+    }
+    .prev { left: 20px; }
+    .next { right: 20px; }
+    /* Galería */
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .galeria .item {
+      width: 200px;
+      cursor: pointer;
+      text-align: center;
+    }
+    .galeria .item img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .galeria .item img:hover { transform: scale(1.05); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="5solas/LOGO.jpg" alt="Logo de la tienda"></a>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="playeras.html">Playeras</a>
+      <a href="cotizaciones.html">Cotizaciones Mayoreo</a>
+      <a href="catalogoscolores.html">Paleta de Colores</a>
+    </nav>
+  </header>
+
+  <section id="sudaderas">
+    <h2>Sudaderas $380 mxn.</h2>
+    <div class="galeria">
+      <!-- Aquí van todas las imágenes de playeras -->
+       <div class="item">
+        <img src="5solas/SUDADERA NEGRA.jpg" alt="Sudadera modelo 1">
+        <p>Varios Colores y modelos disponibles</p>
+        
+      </div>
+      <div class="item">
+        <img src="5solas/SUDADERA TURQUESA.jpg" alt="Sudadera modelo 2">
+        <p>Varios Colores y modelos disponibles</p>
+
+      </div>
+      <div class="item">
+        <img src="5solas/SUDADERA VERDE.jpg" alt="Sudadera modelo 3">
+       <p>Varios Colores y modelos disponibles</p>
+
+      </div>
+      <div class="item">
+        <img src="5solas/sudaderaenlatierra.jpg" alt="Sudadera modelo 4">
+       <p>Varios Colores y modelos disponibles</p>
+
+
+      <!-- etc... -->
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox">
+    <span class="close-lightbox" id="close">&times;</span>
+    <button class="prev" id="prev">&#10094;</button>
+    <div class="lightbox-img-container">
+      <img src="" alt="Playera" id="lightbox-img">
+    </div>
+    <button class="next" id="next">&#10095;</button>
+  </div>
+
+  <footer>
+    <div class="footer-contenido">
+      <img src="5solas/5solaslogofinal.png" alt="Logo 5 Solas" class="footer-logo">
+      <p>&copy; 2025 5Solas <sup>®</sup> - Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('close');
+    const images = Array.from(document.querySelectorAll('.galeria .item img'));
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    let currentIndex = 0;
+
+    function showLightbox(index){
+      currentIndex = index;
+      lightboxImg.src = images[index].src;
+      lightbox.classList.add('active');
+    }
+
+    images.forEach((img, i) => {
+      img.addEventListener('click', () => showLightbox(i));
+    });
+
+    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+    lightbox.addEventListener('click', e => { if(e.target === lightbox) lightbox.classList.remove('active'); });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+    });
+  </script>
+</body>
+</html>
