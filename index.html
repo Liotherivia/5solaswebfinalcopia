@@ -6,6 +6,21 @@
   <title>5 Solas</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Estilos para fade */
+    #contenido-quienes {
+      max-width: 800px;
+      margin: 20px auto;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    #contenido-quienes.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
 </head>
 <body>
 
@@ -18,6 +33,7 @@
     <a href="index.html">Inicio</a>
     <a href="playeras.html">Playeras</a>
     <a href="sudaderas.html">Sudaderas</a>
+    <a href="#" id="btn-quienes">¿Quiénes Somos?</a>
     <a href="cotizaciones.html">Cotizaciones Mayoreo</a>
   </nav>
 </header>
@@ -31,17 +47,18 @@
       conforme lo que está escrito en la Biblia, formado por un grupo de expertos en diseño creativo,
       impresos de última generación y diferentes soportes para reproducir los productos con excelente calidad.
     </p>
-  </div>
-
-  <div class="mision-vision" id="mision-vision" style="display:none;">
-    <div class="caja">
-      <h3>Visión</h3>
-      <p>Ser una marca que represente el amor de Dios por las personas en México y la sociedad latina inspirando vidas, sueños y una nueva forma de vivir así como la libertad de expresar lo que creemos, formando una coyuntura para alcanzar vidas para Cristo.</p>
-    </div>
-    <div class="caja">
-      <h3>Misión</h3>
-      <p>Difundir el mensaje del evangelio de una forma diferente, apegados a las escrituras y guardando la integridad de las mismas a través de productos de calidad, creando también una marca que represente y ayude a la comunidad cristiana en México expresando libremente la verdad de Dios.</p>
-    </div>
+    <h3>Visión</h3>
+    <p>
+      Ser una marca que represente el amor de Dios por las personas en México y la sociedad latina inspirando vidas,
+      sueños y una nueva forma de vivir así como la libertad de expresar lo que creemos, formando una coyuntura para
+      alcanzar vidas para Cristo.
+    </p>
+    <h3>Misión</h3>
+    <p>
+      Difundir el mensaje del evangelio de una forma diferente, apegados a las escrituras y guardando la integridad de
+      las mismas a través de productos de calidad, creando también una marca que represente y ayude a la comunidad cristiana
+      en México expresando libremente la verdad de Dios.
+    </p>
   </div>
 </section>
 
@@ -79,26 +96,14 @@
   <i class="fab fa-instagram"></i>
 </a>
 
-<!-- Scripts -->
+<!-- Script -->
 <script>
-  // Fade Quiénes Somos
+  // Mostrar/Ocultar "¿Quiénes Somos?" con fade
   document.getElementById("btn-quienes").addEventListener("click", function(event) {
-    event.preventDefault(); 
+    event.preventDefault();
     const contenido = document.getElementById("contenido-quienes");
-    if (contenido.classList.contains("show")) {
-      contenido.classList.remove("show");
-      setTimeout(() => contenido.style.display = "none", 600);
-    } else {
-      contenido.style.display = "block";
-      setTimeout(() => contenido.classList.add("show"), 50);
-    }
-    document.getElementById("quienes-somos").scrollIntoView({ behavior: "smooth" });
-  });
-
-  // Mostrar Misión/Visión al hacer click en logo
-  document.getElementById("logo").addEventListener("click", function() {
-    const misionVision = document.getElementById("mision-vision");
-    misionVision.style.display = (misionVision.style.display === "none" || misionVision.style.display === "") ? "flex" : "none";
+    contenido.classList.toggle("show");
+    contenido.scrollIntoView({ behavior: "smooth" });
   });
 </script>
 
